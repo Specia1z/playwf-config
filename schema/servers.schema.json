@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Specia1z/playwf-config/main/schema/servers.schema.json",
+  "title": "PlayWF launcher server configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "configVersion",
+    "releaseRepository",
+    "defaultServer",
+    "servers"
+  ],
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "configVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "releaseRepository": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+    },
+    "defaultServer": {
+      "type": ["string", "null"]
+    },
+    "servers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/server"
+      }
+    }
+  },
+  "$defs": {
+    "server": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "description",
+        "host",
+        "httpPort",
+        "httpsPort",
+        "secureConnections",
+        "enabled",
+        "maintenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 240
+        },
+        "host": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9.-]+$"
+        },
+        "httpPort": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "httpsPort": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "secureConnections": {
+          "type": "boolean"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "maintenance": {
+          "type": "boolean"
+        },
+        "maintenanceMessage": {
+          "type": "string",
+          "maxLength": 240
+        }
+      }
+    }
+  }
+}

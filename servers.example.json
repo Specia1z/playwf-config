@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "configVersion": 1,
+  "releaseRepository": "Specia1z/warframe-dll",
+  "defaultServer": "public",
+  "servers": [
+    {
+      "id": "public",
+      "name": "PlayWF Public",
+      "description": "Public PlayWF server",
+      "host": "playwf.example.com",
+      "httpPort": 80,
+      "httpsPort": 443,
+      "secureConnections": true,
+      "enabled": true,
+      "maintenance": false
+    }
+  ]
+}
