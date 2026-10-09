@@ -7,7 +7,6 @@
   "required": [
     "schema",
     "configVersion",
-    "releaseRepository",
     "defaultServer",
     "servers"
   ],
@@ -18,10 +17,6 @@
     "configVersion": {
       "type": "integer",
       "minimum": 1
-    },
-    "releaseRepository": {
-      "type": "string",
-      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
     },
     "defaultServer": {
       "type": ["string", "null"]

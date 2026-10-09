@@ -1,7 +1,6 @@
 {
   "schema": 1,
   "configVersion": 1,
-  "releaseRepository": "Specia1z/warframe-dll",
   "defaultServer": "public",
   "servers": [
     {

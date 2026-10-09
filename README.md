@@ -18,9 +18,10 @@ This repository may contain public connection details only. Do not add:
 
 ## Configuration
 
-`servers.json` contains the launcher release repository and the list of
-servers shown in the UI. A server is available only when `enabled` is `true`
-and `maintenance` is `false`.
+`servers.json` contains only the public discovery list shown by the launcher.
+A server is available only when `enabled` is `true` and `maintenance` is
+`false`. Release metadata, DLLs, hotfixes, feature packages, and client
+configuration are served by the selected server and are not stored here.
 
 Example entry:
 
@@ -43,6 +44,6 @@ The corresponding JSON schema is in `schema/servers.schema.json`.
 ## Update Rules
 
 Keep changes small and validate `servers.json` before pushing. The launcher
-uses the last valid cached configuration when GitHub is temporarily
-unavailable. The launcher will reject malformed JSON, non-HTTPS server
-configuration, invalid ports, and duplicate server IDs.
+uses the last valid cached configuration when the discovery endpoint is
+temporarily unavailable. The launcher will reject malformed JSON, invalid
+hosts or ports, and duplicate server IDs.
